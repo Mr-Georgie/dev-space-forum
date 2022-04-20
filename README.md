@@ -21,7 +21,7 @@ npm start
 This will install all the dependencies from the package.json file
 
 ## Contributing
-DevSpace Forum is open sourced so it can be used by others.
+DevSpace Forum is open sourced so it can be used by others. See the LICENSE file for terms and conditions
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
