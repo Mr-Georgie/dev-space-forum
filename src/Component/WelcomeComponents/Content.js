@@ -5,7 +5,7 @@ import DevSpaceImg from '../../images/devspace.png'
 
 export default function Main() {
   return (
-    <main className="sm:p-0 md:p-0 lg:p-0 xl:p-0">
+    <main className="">
 
         <div className="grid grid-col-1 px-16
                         lg:grid-cols-12 
