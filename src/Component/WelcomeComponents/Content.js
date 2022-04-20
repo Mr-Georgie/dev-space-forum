@@ -22,7 +22,7 @@ export default function Main() {
                                 md:text-6xl
                                 lg:text-7xl"
                 >
-                    Welcome to <span className="text-indigo-400"> DevSpace!</span>    
+                    Welcome to <span className="text-indigo-400"> DevSpace Forum!</span>    
                 </h1>
                 <p className="pb-5 text-lg
                                 sm:text-2xl
