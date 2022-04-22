@@ -28,4 +28,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Thanks
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[Apache-2 permissive license](https://www.apache.org/licenses/LICENSE-2.0)
