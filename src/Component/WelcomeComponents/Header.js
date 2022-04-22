@@ -12,7 +12,7 @@ export default function Header(props) {
       {/* Navbar starts here */}
       <nav className="grid grid-cols-2 py-2 mb-16">
         <div className="flex justify-start">
-          <span href="" className="nav-link p-2"> DevSpace Forum</span>{/* Put Logo here */}
+          <span href="" className="nav-link p-2"> DevSpace</span>{/* Put Logo here */}
         </div>
 
         <div className="flex justify-end gap-5 static">

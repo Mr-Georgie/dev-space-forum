@@ -5,7 +5,7 @@ import DevSpaceImg from '../../images/devspace.png'
 
 export default function Main() {
   return (
-    <main className="">
+    <main className="sm:p-0 md:p-0 lg:p-0 xl:p-0">
 
         <div className="grid grid-col-1 px-16
                         lg:grid-cols-12 
@@ -22,7 +22,7 @@ export default function Main() {
                                 md:text-6xl
                                 lg:text-7xl"
                 >
-                    Welcome to <span className="text-indigo-400"> DevSpace Forum!</span>    
+                    Welcome to <span className="text-indigo-400"> DevSpace!</span>    
                 </h1>
                 <p className="pb-5 text-lg
                                 sm:text-2xl
