@@ -19,7 +19,8 @@ export default function ViewQuestion() {
 
     useEffect(() => {
         fetchQuestionById(Id)
-    }, []) // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    
 
     const questionHandler = (action) => {
 

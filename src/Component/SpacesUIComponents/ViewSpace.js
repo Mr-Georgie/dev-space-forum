@@ -17,7 +17,7 @@ export default function ViewSpace() {
 
     useEffect(() => {
         fetchSpaceById(Id)
-    }, []) // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const spaceHandler = () => {
 
