@@ -3,6 +3,8 @@ import Header from "./WelcomeComponents/Header"
 import Main from "./WelcomeComponents/Content"
 import Footer from "./SubComponents/Footer"
 
+import { UserContextProvider } from "./UtilityComponents/UserContext"
+
 export default function Welcome() {
     /**
      * This welcome component will show for unauthenticated users
@@ -18,7 +20,9 @@ export default function Welcome() {
     return (
         // Add overflow-hidden to the welcome component UI when modal in <Header/> is active
         <div className={`${showModal ? "overflow-y-hidden h-screen" : " "} app-style`}>
-            <Header showModalHandler={showModalHandler}/>
+            <UserContextProvider>
+                <Header showModalHandler={showModalHandler}/>
+            </UserContextProvider>
             <Main />
             <Footer />
         </div>

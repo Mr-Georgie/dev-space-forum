@@ -1,21 +1,34 @@
-import React from "react"
+// eslint-disable-next-line
+import React, {useEffect} from "react"
 import Welcome from "./Component/Welcome"
 import Home from "./Component/Home"
 
-import { Switch, Route } from "react-router-dom"
+
+import {Routes, Route } from "react-router-dom"
+import { UserContextProvider } from "./Component/UtilityComponents/UserContext"
+import { SpaceContextProvider } from './Component/UtilityComponents/SpaceContext'
+import { QuestionContextProvider } from "./Component/UtilityComponents/QuestionContext"
 
 export default function App() {
 
   return (
     <div className="">
-      <Switch>
-        <Route exact path="/">
+      <Routes>
+        <Route exact path="/" element={
           <Welcome />
+        }>
         </Route>
-        <Route path="/home">
-          <Home />
+        <Route path="/home/*" element={
+          <UserContextProvider>
+            <SpaceContextProvider>
+              <QuestionContextProvider>
+                <Home />
+              </QuestionContextProvider>
+            </SpaceContextProvider>
+          </UserContextProvider>
+        }>
         </Route>
-      </Switch>
+      </Routes>
     </div>
   )
 }

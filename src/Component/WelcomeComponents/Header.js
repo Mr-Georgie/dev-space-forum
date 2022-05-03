@@ -1,5 +1,5 @@
 import React from 'react'
-import Toggler from "../Toggler"
+import Toggler from "../UtilityComponents/Toggler"
 import LoginModal from './LoginModal'
 import SignUpModal from './SignUpModal'
 
