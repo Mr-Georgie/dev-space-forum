@@ -1,4 +1,4 @@
-# DevSpace Forum &middot; [![npm version](https://img.shields.io/badge/npm-v6.14.13-blue)](https://www.npmjs.com/package/react) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE)
+# DevSpace Forum &middot; [![npm version](https://img.shields.io/badge/npm-v6.14.13-blue)](https://www.npmjs.com/package/react) [![GitHub license](https://img.shields.io/hexpm/l/apa)](https://github.com/facebook/react/blob/main/LICENSE)
 
 DevSpace Forum is an online community where you can get your tech related questions answered via video conferencing. You can also talk about the latest technology you're using in live sessions.
 
