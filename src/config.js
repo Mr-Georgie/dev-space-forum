@@ -9,7 +9,6 @@ const sdk = new Appwrite()
 sdk
    .setEndpoint("https://appwrite.georgeisiguzo.xyz/v1") // Your API Endpoint Ip "http://188.166.110.93/v1"
    .setProject('6271a55fc848d4a07753') // Your project ID
-   .setSelfSigned()
 ;
 
 const collectionId = "6271702a3a066954ffc0"
