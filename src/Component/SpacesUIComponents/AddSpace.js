@@ -14,6 +14,7 @@ export default function AddSpace() {
         tags: "",
         date: "",
         time: "",
+        platform: "",
         about: ""
     })
     
@@ -99,7 +100,6 @@ export default function AddSpace() {
                                     focus:outline-none focus:border-sky-500 
                                     focus:ring-1 focus:ring-sky-500
                                     "
-                                    required
                             />
                         </label>
 
@@ -136,6 +136,24 @@ export default function AddSpace() {
                             />
                         </label>
 
+                        <label htmlFor="" className="block py-2">
+                            <span className="block text-sm font-medium text-slate-700 pb-1" htmlFor="time">Platform</span>
+                            <select
+                                value={formData.platform}
+                                onChange={handleChange}
+                                name="platform"
+                                className="mt-1 block w-full px-3 py-2 
+                                bg-white border border-slate-300 rounded-md 
+                                    text-sm shadow-sm placeholder-slate-400 
+                                    focus:outline-none focus:border-sky-500 
+                                    focus:ring-1 focus:ring-sky-500"
+                            >
+                                <option value="{formData.role}">{`--${formData.platform}--`}</option>
+                                <option value="Google Meet">Google Meet</option>
+                                <option value="Zoom">Zoom</option>
+                            </select>
+                        </label>
+
                         <label className="block py-2">
                             <span className="block text-sm font-medium text-slate-700 pb-1" htmlFor="title">About this space</span>
                             <textarea 
@@ -149,7 +167,6 @@ export default function AddSpace() {
                                     text-sm shadow-sm placeholder-slate-400 
                                     focus:outline-none focus:border-sky-500 
                                     focus:ring-1 focus:ring-sky-500"
-                                required
                             />
                         </label>
 

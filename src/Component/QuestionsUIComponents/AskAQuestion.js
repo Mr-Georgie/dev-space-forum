@@ -3,10 +3,12 @@ import React, { useState, useContext } from 'react'
 import tutorImg from '../../images/tutor5.png'
 
 import { QuestionContext } from '../UtilityComponents/QuestionContext'
+// import { UserContext } from '../UtilityComponents/UserContext'
 
 export default function AskAQuestion() {
 
     const { createNewQuestion } = useContext(QuestionContext)
+    // const { user } = useContext(UserContext)
 
     const [formData, setFormData] = useState({
         title: "",

@@ -16,7 +16,7 @@ export default function Tabs() {
             {to: "/home/all-questions", name: "All Questions", isActive: false, isQuestion: true},
             {to: "/home/upcoming-spaces", name: "Upcoming Spaces", isActive: false, isQuestion: false},
             {to: "/home/live-spaces", name: "Live Spaces", isActive: false, isQuestion: false},
-            {to: "/home/concluded-spaces", name: "Concluded Spaces", isActive: false, isQuestion: false}
+            // {to: "/home/concluded-spaces", name: "Concluded Spaces", isActive: false, isQuestion: false}
         ]
     )
 

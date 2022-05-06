@@ -28,7 +28,7 @@ function UserContextProvider(props) {
               'unique()', 
               data.email, 
               data.password, 
-              'Georgie')
+              data.username)
           
           await sdk.account.createSession(data.email, data.password)
     
@@ -36,7 +36,9 @@ function UserContextProvider(props) {
     
           toast.info("Verification email sent")
           
-          navigate("/home")
+          setTimeout(() => {
+            navigate("/home")
+          }, 5000)
         }
         catch (error) {
           toast.error("Oops! An error occured while signing up")
@@ -66,9 +68,10 @@ function UserContextProvider(props) {
         const data = await sdk.account.get()
         setUser(data)
         // console.log("data: ", data)
+        // toast.success("Welcome ", data.username)
       }
       catch (error) {
-        toast.error("Oops! An error occured while fetching user details")
+        toast.error("Oops! Please login to continue...")
         console.log(error)
       }
     }

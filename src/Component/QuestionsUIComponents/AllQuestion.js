@@ -1,0 +1,40 @@
+import React, { useContext } from 'react'
+import Card from '../SubComponents/Card'
+import { QuestionContext } from '../UtilityComponents/QuestionContext'
+
+
+export default function AllQuestion() {
+
+  const { questions } = useContext(QuestionContext)
+
+  let questionsValidation = questions.documents === undefined ? null
+  :
+  questions.documents
+
+
+  return (
+    <div className="divide-y divide-dashed">
+      { questionsValidation ?
+          questions.documents.length === 0 ?
+            questions.documents.filter((question) => question.host === null).map((question) => {
+              return (
+                <Card 
+                  key={question.title}
+                  id={question['$id']}
+                  title={question.title}
+                  host={question.host}
+                  created_by={question.created_by} 
+                  comment={question.comment}
+                  participants={question.participants}
+                  is_question={true}
+                />
+              )
+            })
+          :
+        <p className="p-5">No questions for now...</p>
+        :
+        <p className="p-5">Couldn't fetch questions from database...</p>
+      }
+    </div>
+  )
+}

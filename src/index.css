@@ -11,7 +11,7 @@
   .main-content {
     @apply pb-3 col-span-12 bg-white border-r 
     sm:col-span-12
-    md:ml-[210px] md:z-10
+    md:ml-[220px] md:z-10
     lg:col-span-12
     xl:mx-[280px] xl:z-10;
   }

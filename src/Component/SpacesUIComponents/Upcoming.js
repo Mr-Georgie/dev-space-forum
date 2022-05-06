@@ -15,29 +15,33 @@ export default function Upcoming() {
   return (
     <div className="divide-y divide-dashed">
     {
-        upcomingSpaces ? upcomingSpaces.map((space) => {
-            return (
-                <Card 
-                    key={space.title}
-                    id={space['$id']}
-                    title={space.title} 
-                    host={space.host} 
-                    about={space.about} 
-                    tags={space.tags} 
-                    duration={space.duration} 
-                    created_at={space.created_at} 
-                    has_ended={space.has_ended} 
-                    is_ongoing={space.is_ongoing} 
-                    reviews={space.reviews} 
-                    participants={space.participants} 
+        upcomingSpaces ? 
+          upcomingSpaces.length !== 0 ?
+            upcomingSpaces.map((space) => {
+                return (
+                    <Card 
+                        key={space.title}
+                        id={space['$id']}
+                        title={space.title} 
+                        host={space.host} 
+                        about={space.about} 
+                        tags={space.tags} 
+                        duration={space.duration} 
+                        created_at={space.created_at} 
+                        has_ended={space.has_ended} 
+                        is_live={space.is_live} 
+                        reviews={space.reviews} 
+                        participants={space.participants} 
 
-                    // 
-                    is_question={false}
-                />
-            )
-        })
+                        // 
+                        is_question={false}
+                    />
+                )
+            })
+          :
+          <p className="p-5">No Upcoming spaces at the moment...</p>
         :
-        <p className="p-5">No Upcoming spaces at the moment...</p>
+        <p className="p-5">Couldn't fetch Upcoming spaces from the database...</p>
     }
     </div>
   )

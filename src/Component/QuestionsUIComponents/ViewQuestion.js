@@ -99,11 +99,11 @@ export default function ViewQuestion() {
                     <div className="flex items-center gap-10">
                         {
                             /**
-                             * each document in questions collection has a '$read' attribute that holds the document creator id as e.g user:94i9dkf944fk9f
+                             * each document in questions collection has a '$write' attribute that holds the document creator id as e.g user:94i9dkf944fk9f
                              * use this to allow only question creator to delete question document
                              */
-                            question['$read'] !== undefined && // check if questions has been fetched from database and if it has a read attribute
-                            question['$read'][0].split(":")[1] === user['$id'] && // check if the creator of question is the current logged in user
+                            question['$write'] !== undefined && // check if questions has been fetched from database and if it has a read attribute
+                            question['$write'][0].split(":")[1] === user['$id'] && // check if the creator of question is the current logged in user
                             <div className="mt-3" onClick={() => deleteQuestion(Id)}>
                                 <button className="btn-red font-bold"> Delete</button>
                             </div>

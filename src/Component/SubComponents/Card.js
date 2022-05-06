@@ -106,9 +106,12 @@ export default function Card(props) {
               />
 
               {/* --------- user name ---------- */}
-              <div className="ltr:ml-3 rtl:mr-3">
-                <p className="text-sm font-medium text-slate-300 group-hover:text-white">{props.host === null ? "No host yet" : `${props.host} is Hosting this space`}</p>
-                <p className="text-sm font-medium text-slate-500 group-hover:text-slate-300">Director of Operations</p>
+              <div 
+                className="ltr:ml-3 rtl:mr-3
+                          text-sm font-medium text-slate-500 group-hover:text-blue-500 cursor-pointer"
+              >
+                <p className="">{props.host === null ? "No host yet" : `${props.host} is Hosting this space`}</p>
+                <p className="text-slate-300">Director of Operations</p>
               </div>
 
 
@@ -197,13 +200,16 @@ export default function Card(props) {
                     src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png" 
                     alt="" 
                     />
-                    <div className="ltr:ml-3 rtl:mr-3">
-                    <p className="text-sm font-medium text-slate-300 group-hover:text-white">{props.host === null ? "No host yet" : `${props.host} is Hosting this space`}</p>
-                    <p className="text-sm font-medium text-slate-500 group-hover:text-slate-300">Director of Operations</p>
+                    <div 
+                      className="ltr:ml-3 rtl:mr-3
+                                text-sm font-medium text-slate-500 group-hover:text-blue-500 cursor-pointer"
+                    >
+                    <p className="">{props.host === null ? "No host yet for this question" : `${props.host} is Hosting this space`}</p>
+                    <p className="text-slate-300 group-hover:text-slate-300">Director of Operations</p>
                     </div>
                 </div>
 
-                <Link to={`/home/view-space/${props.id}`} className="flex flex-col text-normal cursor-pointer">
+                <Link to={`/home/question/${props.id}`} className="flex flex-col text-normal cursor-pointer">
                     <span className="font-bold">{props.title}</span>
                     {/* <span className="">Created by: Georgie</span> */}
                     <span className="About"> {props.comment === null ? "Information about this space will be added by the space host": props.comment}</span>   

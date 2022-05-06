@@ -33,9 +33,7 @@ export default function ViewSpace() {
 
     }
 
-    
-
-
+    // console.log(space)
 
     return (
     
@@ -79,13 +77,13 @@ export default function ViewSpace() {
                         <span className="block text-lg text-slate-700 pb-1" htmlFor="title">{space.title}</span>
                     </label>
 
-                    <div className="flex flex-col lg:flex-row lg:gap-28">
-                        <label className="block py-2">
+                    <div className="grid grid-cols-2">
+                        <label className="block col-span-2 lg:col-span-1 py-2">
                             <span className="block text-sm font-medium text-slate-500 pb-1" htmlFor="tags">Tags</span>
                             <span className="block text-md text-slate-700 pb-1" htmlFor="tags">
                                 {
                                     space.host === user.name ?
-                                        space.tags === null ?
+                                        space.tags === "" ?
                                         <span className="text-red-700 font-medium text-sm">Please click on edit space to add tag *</span>
                                         :
                                         space.tags
@@ -96,12 +94,12 @@ export default function ViewSpace() {
                             </span>
                         </label>
 
-                        <label className="block py-2">
+                        <label className="block col-span-2 lg:col-span-1 py-2">
                             <span className="block text-sm font-medium text-slate-500 pb-1" htmlFor="link">Link</span>
                             <span className="block text-md text-slate-700 pb-1" htmlFor="link">
                                 {
                                     space.host === user.name ?
-                                        space.link === null ?
+                                        space.link === "" ?
                                         <span className="text-red-700 font-medium text-sm">Please click on edit space to add link *</span>
                                         :
                                         <a href={space.link} className="text-blue-400">{space.link}</a>
@@ -112,13 +110,13 @@ export default function ViewSpace() {
                         </label>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row lg:gap-28">
-                        <label className="block py-2">
+                    <div className="grid grid-cols-2">
+                        <label className="block col-span-2 lg:col-span-1 py-2">
                             <span className="block text-sm font-medium text-slate-500 pb-1" htmlFor="date">Date</span>
                             <span className="block text-md text-slate-700 pb-1" htmlFor="date">
                                 {
                                     space.host === user.name ?
-                                        space.date === null ?
+                                        space.date === "" ?
                                         <span className="text-red-700 font-medium text-sm">Please click on edit to add date *</span>
                                         :
                                         space.date
@@ -128,12 +126,12 @@ export default function ViewSpace() {
                             </span>
                         </label>
 
-                        <label className="block py-2">
+                        <label className="block col-span-2 lg:col-span-1 py-2">
                             <span className="block text-sm font-medium text-slate-500 pb-1" htmlFor="date">Time</span>
                             <span className="block text-md text-slate-700 pb-1" htmlFor="date">
                                 {
                                     space.host === user.name ?
-                                        space.time === null ?
+                                        space.time === "" ?
                                         <span className="text-red-700 font-medium text-sm">Please click on edit to add time *</span>
                                         :
                                         space.time
@@ -144,31 +142,47 @@ export default function ViewSpace() {
                         </label>
                     </div>
 
+                    <div className="grid grid-cols-2">
+                        <label className="block col-span-2 lg:col-span-1 py-2">
+                            <span className="block text-sm font-medium text-slate-700 pb-1" htmlFor="time">Participants</span>
+                            <span className="block text-sm font-medium text-slate-700 pb-1" htmlFor="time">
+                                {
+                                    space['participants'] !== undefined &&
+                                    space['participants'].length
+                                    // ?    "No participants yet. Be the first!"
+                                    //     :
+                                    //     space['participants'].length
+                                }
+                            </span>
+                        </label>
+
+                        <label className="block col-span-2 lg:col-span-1 py-2">
+                            <span className="block text-sm font-medium text-slate-700 pb-1" htmlFor="time">Platform</span>
+                            <span className="block text-sm font-medium text-slate-700 pb-1" htmlFor="time">
+                                {
+                                    space.host === user.name ?
+                                        space.platform === "" ?
+                                        <span className="text-red-700 font-medium text-sm">Please click on edit space to add a platform *</span>
+                                        :
+                                        space.platform
+                                    :
+                                    <span className="text-slate-400 font-medium text-sm">The host is yet to add this detail</span>
+                                }
+                            </span>
+                        </label>
+                    </div>
 
                     <label className="block py-2">
                         <span className="block text-sm font-medium text-slate-500 pb-1" htmlFor="time">About</span>
                         <span className="block text-md text-slate-700 pb-1" htmlFor="time">
                             {
                                 space.host === user.name ?
-                                    space.about === null ?
+                                    space.about === "" ?
                                     <span className="text-red-700 font-medium text-sm">Please click on edit space to add info about this space *</span>
                                     :
                                     space.about
                                 :
                                 <span className="text-slate-400 font-medium text-sm">The host is yet to add this detail. Please check back</span>
-                            }
-                        </span>
-                    </label>
-
-                    <label className="block py-2">
-                        <span className="block text-sm font-medium text-slate-700 pb-1" htmlFor="time">Participants</span>
-                        <span className="block text-sm font-medium text-slate-700 pb-1" htmlFor="time">
-                            {
-                                space['participants'] !== undefined &&
-                                space['participants'].length
-                                // ?    "No participants yet. Be the first!"
-                                //     :
-                                //     space['participants'].length
                             }
                         </span>
                     </label>

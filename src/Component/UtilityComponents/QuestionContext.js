@@ -63,7 +63,10 @@ function QuestionContextProvider(props) {
 
             fetchQuestions()
 
-            navigate(`/home/question/${data['$id']}`)
+            setTimeout(() => {
+              navigate(`/home/question/${data['$id']}`)
+            }, 5000)
+
         }
         catch (error) {
           toast.error("Oops! An error creating new question")

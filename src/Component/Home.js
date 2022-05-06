@@ -6,6 +6,7 @@ import { UserContext } from './UtilityComponents/UserContext'
 import { SpaceContext } from './UtilityComponents/SpaceContext'
 import { QuestionContext } from './UtilityComponents/QuestionContext'
 
+import UserProfile from './UserProfile'
 // subcomponents
 import Navbar from './SubComponents/Navbar'
 import LeftSidebar from './SubComponents/LeftSidebar'
@@ -15,27 +16,26 @@ import EditSpace from './SpacesUIComponents/EditSpace'
 import ViewSpace from './SpacesUIComponents/ViewSpace'
 import Spaces from './SpacesUIComponents/Spaces'
 
-import AskAQuestion from './SpacesUIComponents/AskAQuestion'
-import ViewQuestion from './SpacesUIComponents/ViewQuestion'
+import AskAQuestion from './QuestionsUIComponents/AskAQuestion'
+import ViewQuestion from './QuestionsUIComponents/ViewQuestion'
 
 export default function Home() {
 
-  const {user, fetchUserDetails, toast} = useContext(UserContext)
+  const {user, fetchUserDetails } = useContext(UserContext)
 
-  // eslint-disable-next-line 
-  const { fetchSpaces, spaces } = useContext(SpaceContext)
-  // eslint-disable-next-line
-  const { fetchQuestions, questions } = useContext(QuestionContext)
+  // 
+  const { fetchSpaces } = useContext(SpaceContext)
+  // 
+  const { fetchQuestions } = useContext(QuestionContext)
+
 
   useEffect(() => {
     fetchUserDetails()
     fetchSpaces()
     fetchQuestions()
 
-    toast.success("Welcome!")
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  
 
   return (
     <div className="app-style h-full relative">
@@ -44,7 +44,7 @@ export default function Home() {
         <main>
           <div className="mt-8 flex flex-col-reverse
                 sm:mt-10 
-                md:mt-14
+                md:mt-12
                 xl:grid xl:grid-cols-12"
           >   
             
@@ -75,6 +75,11 @@ export default function Home() {
               <Route path="ask-a-question" element={
                 <AskAQuestion />
               } />
+
+              <Route path="/user-profile" element={
+                <UserProfile />
+              } />
+
             </Routes>      
               
             <RightSidebar />  

@@ -1,13 +1,37 @@
 import { Appwrite } from "appwrite";
 
+/**
+ * Digital ocean config
+ */
+
 const sdk = new Appwrite()
 
 sdk
-    .setEndpoint("http://8080-appwrite-integrationfor-ghw26ygqb0r.ws-eu43.gitpod.io/v1") // Your API Endpoint
-    .setProject('626cf93661b59bdb8f3b') // Your project ID
+    .setEndpoint("http://188.166.110.93/v1") // Your API Endpoint
+    .setProject('6271a55fc848d4a07753') // Your project ID
 ;
 
-const collectionId = "626cf9c5709e1b288e1e"
-const questionsCollectionId = "626fdd0c71c45daab351"
+const collectionId = "6271702a3a066954ffc0"
+const questionsCollectionId = "6271720fe9ea03bc27be"
+// const old_spacesCollectionId = "627172b4e8854a25d653"
 
 export { sdk, collectionId, questionsCollectionId }
+
+
+
+
+
+/**
+ * Gitpod config
+ * 
+ * sdk
+    .setEndpoint("http://8080-appwrite-integrationfor-ghw26ygqb0r.ws-eu43.gitpod.io/v1") // Your API Endpoint
+    .setProject('626cf93661b59bdb8f3b') // Your project ID
+    ;
+ * 
+ *  const collectionId = "626cf9c5709e1b288e1e"
+    const questionsCollectionId = "626fdd0c71c45daab351"
+
+    export { sdk, collectionId, questionsCollectionId }
+ * 
+ */
