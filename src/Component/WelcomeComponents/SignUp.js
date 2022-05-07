@@ -105,7 +105,7 @@ export default function SignUp(props) {
                         className="focus:outline-none bg-indigo-800 focus:bg-indigo-900 
                         focus:ring focus:ring-indigo-200 w-80 text-white rounded py-4"
                     >
-                        Log in
+                        Sign up
                     </button>
                 </form>
             </section>
