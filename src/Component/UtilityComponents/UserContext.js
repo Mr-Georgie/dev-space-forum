@@ -45,12 +45,21 @@ function UserContextProvider(props) {
           console.log(error)
         }
     }
+    // for development mode
+    // const signUpWithGoogle = () => {
+    //   sdk.account.createOAuth2Session(
+    //     'google',
+    //     'http://localhost:3000/home',
+    //     'http://localhost:3000'
+    //     );
+    // }
 
+    // For production
     const signUpWithGoogle = () => {
       sdk.account.createOAuth2Session(
         'google',
-        'http://localhost:3000/home',
-        'http://localhost:3000'
+        'https://devspace-forum.netlify.app/home',
+        'https://devspace-forum.netlify.app'
         );
     }
 
