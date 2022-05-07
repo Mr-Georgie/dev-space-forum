@@ -4,6 +4,10 @@ DevSpace Forum is an online community where you can get your tech related questi
 
 Questions on DevSpace can be in the form of "how to's", "getting started", "introduction", "onboarding experience", etc. 
 
+## Preview
+![devspace](https://user-images.githubusercontent.com/28518667/167266369-9cd83538-8441-4750-891b-477aa960dd17.gif)
+
+
 ## Description
 The DevSpace Forum will be made with the following technologies:
 
