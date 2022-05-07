@@ -23,22 +23,21 @@ export default function LeftSidebar() {
         <h1 className="p-3 mb-4 uppercase font-medium">Top 3 Questions</h1>
         <div className="grid grid-cols-1 pb-3">
           {
-            questionsValidation &&
-              questions.documents.length === 0 ?
-                questionsValidation.filter((question) => question.host === null).slice(-3).map((space) => (
-                  
-                  <Link 
-                    key={space['$id']} 
-                    className="py-2 px-4 cursor-pointer hover:bg-indigo-200 hover:text-indigo-600 hover:font-medium"
-                    to={`/home/question/${space['$id']}`}
-                    >
-                      {space.title}
-                  </Link>
-                ))
-                :
-                <div className="">
-                  No questions yet... be the first to ask one!
-                </div>
+            questionsValidation ?
+              questionsValidation.filter((question) => question.host === null).slice(-3).map((space) => (
+                
+                <Link 
+                  key={space['$id']} 
+                  className="py-2 px-4 cursor-pointer hover:bg-indigo-200 hover:text-indigo-600 hover:font-medium"
+                  to={`/home/question/${space['$id']}`}
+                  >
+                    {space.title}
+                </Link>
+              ))
+            :
+            <div className="">
+              No questions yet...
+            </div>
           }
         </div>
 

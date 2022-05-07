@@ -71,7 +71,7 @@ export default function Header() {
               name="search"/>
           </label>
 
-          <div className="flex flex-col items-start gap-3 md:flex-row md:items-center md:gap-5 md:static">
+          <div className="flex flex-col items-end gap-3 md:flex-row md:items-center md:gap-5 md:static">
             <Link to="ask-a-question" className="btn-indigo text-sm inline-block">Ask a question</Link>
             <Link to="/home/add-space" className="btn-pink text-sm inline-block">Create Space</Link>
             <div className="relative inline-block text-left">

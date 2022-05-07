@@ -15,23 +15,20 @@ export default function AllQuestion() {
   return (
     <div className="divide-y divide-dashed">
       { questionsValidation ?
-          questions.documents.length === 0 ?
-            questions.documents.filter((question) => question.host === null).map((question) => {
-              return (
-                <Card 
-                  key={question.title}
-                  id={question['$id']}
-                  title={question.title}
-                  host={question.host}
-                  created_by={question.created_by} 
-                  comment={question.comment}
-                  participants={question.participants}
-                  is_question={true}
-                />
-              )
-            })
-          :
-        <p className="p-5">No questions for now...</p>
+          questions.documents.filter((question) => question.host === null).map((question) => {
+            return (
+              <Card 
+                key={question.title}
+                id={question['$id']}
+                title={question.title}
+                host={question.host}
+                created_by={question.created_by} 
+                comment={question.comment}
+                participants={question.participants}
+                is_question={true}
+              />
+            )
+          })
         :
         <p className="p-5">Couldn't fetch questions from database...</p>
       }

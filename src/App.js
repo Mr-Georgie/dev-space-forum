@@ -14,8 +14,10 @@ export default function App() {
   return (
     <div className="">
       <Routes>
-        <Route exact path="/" element={
-          <Welcome />
+        <Route exact path="/*" element={
+          <UserContextProvider>
+            <Welcome />
+          </UserContextProvider>
         }>
         </Route>
         <Route path="/home/*" element={

@@ -3,9 +3,9 @@ import learn from '../../images/learn.png'
 
 import { UserContext } from '../UtilityComponents/UserContext'
 
-export default function SignUp(props) {
+export default function SignUpModal(props) {
 
-  const {signUpUser } = useContext(UserContext) // implement signUpWithGoogle, signUpWithGithub
+  const { signUpUser } = useContext(UserContext) // implement signUpWithGoogle, signUpWithGithub
 
   // will hold all user form inputs
   const [formData, setFormData] = useState({
