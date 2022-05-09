@@ -58,8 +58,8 @@ function UserContextProvider(props) {
     const signUpWithGoogle = () => {
       sdk.account.createOAuth2Session(
         'google',
-        'http://localhost:3000/home',
-        'http://localhost:3000'
+        'https://devspace-forum.netlify.app/home',
+        'https://devspace-forum.netlify.app'
         );
     }
 
