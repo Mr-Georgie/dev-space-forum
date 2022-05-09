@@ -42,6 +42,10 @@
     @apply bg-red-500 px-4 py-3 text-white rounded hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 cursor-pointer;
   }
 
+  .btn-light {
+    @apply bg-slate-500 px-4 py-3 text-white hover:bg-slate-400 active:bg-slate-500 focus:outline-none focus:ring focus:ring-slate-100 cursor-pointer;
+  }
+
   .btn-tag {
     @apply bg-cyan-500 px-3 py-2 text-white rounded hover:bg-cyan-600 active:bg-cyan-700 focus:outline-none focus:ring focus:ring-cyan-300 cursor-pointer;
   }

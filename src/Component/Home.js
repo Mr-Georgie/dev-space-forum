@@ -5,6 +5,7 @@ import {Routes, Route } from "react-router-dom"
 import { UserContext } from './UtilityComponents/UserContext'
 import { SpaceContext } from './UtilityComponents/SpaceContext'
 import { QuestionContext } from './UtilityComponents/QuestionContext'
+// import { ImageContext } from './UtilityComponents/ImageContext'
 
 import UserProfile from './UserProfile'
 // subcomponents
@@ -28,11 +29,14 @@ export default function Home() {
   // 
   const { fetchQuestions } = useContext(QuestionContext)
 
+  // const { getAllImages } = useContext(ImageContext)
+
 
   useEffect(() => {
     fetchUserDetails()
     fetchSpaces()
     fetchQuestions()
+    // getAllImages()
 
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -69,7 +73,7 @@ export default function Home() {
               } />
 
               <Route path="add-space" element={
-                <AddSpace />
+                  <AddSpace />
               } />
 
               <Route path="ask-a-question" element={

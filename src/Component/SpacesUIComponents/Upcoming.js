@@ -31,7 +31,8 @@ export default function Upcoming() {
                         has_ended={space.has_ended} 
                         is_live={space.is_live} 
                         reviews={space.reviews} 
-                        participants={space.participants} 
+                        participants={space.participants}
+                        image_id={space.image_id} 
 
                         // 
                         is_question={false}

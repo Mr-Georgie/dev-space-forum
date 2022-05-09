@@ -9,7 +9,8 @@ export default function Concluded() {
 
   let concludedSpaces = spaces.documents === undefined ? null
   :
-  spaces.documents.filter((space) => space.has_ended)
+  spaces.documents.filter((space) => !space.is_live && !space.is_upcoming)
+  
 
   return (
     <div className="divide-y divide-dashed">
@@ -30,7 +31,8 @@ export default function Concluded() {
                         has_ended={space.has_ended} 
                         is_live={space.is_live} 
                         reviews={space.reviews} 
-                        participants={space.participants} 
+                        participants={space.participants}
+                        image_id={space.image_id} 
 
                         // 
                         is_question={false}

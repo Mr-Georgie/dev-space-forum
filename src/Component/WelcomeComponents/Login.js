@@ -31,16 +31,16 @@ export default function Login(props) {
         <main className={`flex-auto bg-white space-y-7 p-2" md:block ${props.close ? "" : "hidden"}`}>
             <header className="py-5 px-5 my-4">
                 <nav>
-                    <a href="https://twitter.com/GeorgeIsiguzo" >
+                    <span>
                         <span className="flex items-center justify-end">
-                            <span 
+                            <a href="https://twitter.com/GeorgeIsiguzo" 
                                 className="flex items-center space-x-4 p-2 rounded 
                                         hover:bg-slate-50 hover:font-medium hover:shadow-sm
                                         focus:bg-slate-50 focus:font-medium focus:shadow-sm">
                                 <img src={twitter} alt="twitter icon" className="h-3"/>
-                            </span>
+                            </a>
                         </span>
-                    </a>
+                    </span>
                 </nav>
             </header>
             <div className="flex items-center justify-center p-5">

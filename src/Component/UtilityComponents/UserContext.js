@@ -58,16 +58,16 @@ function UserContextProvider(props) {
     const signUpWithGoogle = () => {
       sdk.account.createOAuth2Session(
         'google',
-        'https://devspace-forum.netlify.app/home',
-        'https://devspace-forum.netlify.app'
+        'http://localhost:3000/home',
+        'http://localhost:3000'
         );
     }
 
     const signUpWithGithub = () => {
       sdk.account.createOAuth2Session(
         'github',
-        'http://localhost:3000/home',
-        'http://localhost:3000'
+        'https://devspace-forum.netlify.app/home',
+        'https://devspace-forum.netlify.app'
       );
     }
     
@@ -95,7 +95,7 @@ function UserContextProvider(props) {
           navigate('/home')
         }
         catch (error) {
-          toast.error("Oops! An error occured while trying to login")
+          toast.error("Oops! An error occured while trying to login. Please make sure your email or password is correct")
           console.log(error)
         }
     }

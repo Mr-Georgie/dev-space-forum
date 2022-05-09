@@ -27,7 +27,7 @@ function QuestionContextProvider(props) {
         // console.log("spaces: ", data.documents)
       }
       catch (error) {
-        toast.error("Oops! An error occured while fetching questions")
+        console.log("Oops! An error occured while fetching questions")
         console.log(error)
       }
     }
@@ -92,7 +92,7 @@ function QuestionContextProvider(props) {
             fetchQuestions()
         }
         catch (error) {
-          toast.error("Oops! An error updating new space")
+          toast.error("Oops! An error updating this question")
           console.log(error)
         }
     }
@@ -115,7 +115,7 @@ function QuestionContextProvider(props) {
             navigate('/home')
         }
         catch (error) {
-          toast.error("Oops! An error deleting question")
+          toast.error("Oops! An error deleting this question")
           console.log(error)
         }
     }

@@ -14,8 +14,9 @@ sdk
 const collectionId = "6271702a3a066954ffc0"
 const questionsCollectionId = "6271720fe9ea03bc27be"
 // const old_spacesCollectionId = "627172b4e8854a25d653"
+const bucketId = "6276bc698382d791a207"
 
-export { sdk, collectionId, questionsCollectionId }
+export { sdk, collectionId, questionsCollectionId, bucketId }
 
 
 

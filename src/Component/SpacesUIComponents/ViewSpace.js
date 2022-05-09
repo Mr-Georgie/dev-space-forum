@@ -7,29 +7,64 @@ import { SpaceContext } from '../UtilityComponents/SpaceContext'
 import { UserContext } from '../UtilityComponents/UserContext'
 
 import { Link, useParams } from "react-router-dom"
+import noImg from '../../images/no-image.png'
 
 export default function ViewSpace() {
 
     let { Id } = useParams()
 
     const { fetchSpaceById, space, deleteSpace, updateSpace } = useContext(SpaceContext)
+    // can also use getSpaceImagePreview to get image preview
+
     const { user, toast } = useContext(UserContext)
 
     useEffect(() => {
         fetchSpaceById(Id)
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-    const spaceHandler = () => {
+    const spaceHandler = (action) => {
 
         let {...cardData} = space
-        
-        if (cardData.participants.includes(user['$id'])) {
-            toast.info("You've joined already")
+
+        if (action === "join") {
+
+            if (cardData.participants.includes(user['$id'])) {
+                toast.info("You've joined already")
+            } else {
+                cardData.participants.push(user['$id'])
+                toast.info("You've Joined!")
+                updateSpace( cardData, cardData['$id'] )
+            }
+
         } else {
-            cardData.participants.push(user['$id'])
-            toast.info("You've Joined!")
-            updateSpace( cardData, space['$id'] )
+
+            if (action === "live") {
+                cardData.is_live = true
+                cardData.is_upcoming = false
+
+                toast.info("This space is live!")
+
+                updateSpace( cardData, cardData['$id'] )
+            } else if (action === "concluded") {
+                cardData.is_live = false
+                cardData.is_upcoming = false
+
+                toast.info("This space is has now ended")
+
+                updateSpace( cardData, cardData['$id'] )
+            } else {
+                cardData.is_live = false
+                cardData.is_upcoming = true
+
+                toast.info("This space is upcoming!")
+
+                updateSpace( cardData, cardData['$id'] )
+            }
+
+
         }
+
+        
 
     }
 
@@ -42,11 +77,19 @@ export default function ViewSpace() {
 
                 <div className="space-y-6">
                     <div className="shrink-0">
-                        
-                        <img className="w-full h-48 object-cover" 
-                            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" 
-                            alt="space cover" 
-                        />
+                        {
+                            space.image_id === null ?
+                            <img className="w-full h-48 object-cover" 
+                                src={noImg} 
+                                alt="space cover" 
+                            />
+                            :
+                            <img className="w-full h-48 object-cover" 
+                                src={`https://appwrite.georgeisiguzo.xyz/v1/storage/buckets/6276bc698382d791a207/files/${space.image_id}/view?project=6271a55fc848d4a07753&mode=admin`} 
+                                alt="space cover" 
+                            />
+
+                        }
                             
                     </div>
                 </div>
@@ -54,9 +97,23 @@ export default function ViewSpace() {
                     { 
                         space.host === user.name ?
                         <label className="flex flex-col items-center py-2 border-b">
-                            <span className="block text-sm font-medium text-slate-700 pb-1" htmlFor="title">
+                            <span className="block text-md font-medium text-slate-700 pb-1" htmlFor="title">
                                 You're the host of this space!
                             </span>
+                            <span className="block text-sm text-slate-700 pb-1" htmlFor="title">
+                                What's the status of this space?
+                            </span>
+                            <div className="flex items-center">
+                                <div className="mt-3" onClick={() => spaceHandler("upcoming")}>
+                                    <button className="btn-light font-bold"> Upcoming</button>
+                                </div>
+                                <div className="mt-3" onClick={() => spaceHandler("live")}>
+                                    <button className="btn-light font-bold"> Live</button>
+                                </div>
+                                <div className="mt-3" onClick={() => spaceHandler("concluded")}>
+                                    <button className="btn-light font-bold"> Concluded</button>
+                                </div>
+                            </div>
                             <span>
                                 Make sure to edit it so that community members finds it interesting
                             </span>
@@ -191,6 +248,9 @@ export default function ViewSpace() {
                         {
                             space.host === user.name ?
                             <>
+                            <div className="mt-3" onClick={() => deleteSpace(Id, space.image_id)}>
+                                <button className="btn-red font-bold"> Delete</button>
+                            </div>
                             <div className="mt-3">
                                 <Link 
                                     className="btn-indigo font-bold" 
@@ -200,13 +260,10 @@ export default function ViewSpace() {
                                     Edit Space
                                 </Link>
                             </div>
-                            <div className="mt-3" onClick={() => deleteSpace(Id)}>
-                                <button className="btn-red font-bold"> Delete</button>
-                            </div>
                             </>
                             :
                             <span
-                                onClick={() => spaceHandler()} 
+                                onClick={() => spaceHandler("join")} 
                                 className="flex items-center gap-2 btn-pink cursor-pointer mt-3"
                             >
                                 <span className="">Join</span> 

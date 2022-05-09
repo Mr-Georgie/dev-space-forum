@@ -31,6 +31,7 @@ export default function Live() {
                       is_live={space.is_live}
                       reviews={space.reviews} 
                       participants={space.participants}
+                      image_id={space.image_id} 
                       
                       // 
                       is_question={false}

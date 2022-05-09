@@ -24,6 +24,7 @@ export default function AllSpace() {
             is_ongoing={space.is_ongoing} 
             reviews={space.reviews} 
             participants={space.participants}
+            image_id={space.image_id}
             // check if card is a question
             is_question={false}
             />

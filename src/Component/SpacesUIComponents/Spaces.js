@@ -5,7 +5,7 @@ import AllSpace from './AllSpace'
 import AllQuestion from '../QuestionsUIComponents/AllQuestion'
 import Upcoming from './Upcoming'
 import Live from './Live'
-// import Concluded from './Concluded'
+import Concluded from './Concluded'
 
 import Tabs from '../SubComponents/Tabs'
 
@@ -66,9 +66,9 @@ export default function Spaces() {
                 </>
               } />
 
-              {/* <Route path="concluded-spaces" element={
+              <Route path="concluded-spaces" element={
                 <Concluded />
-              } /> */}
+              } />
             </Routes>
         </div>
       </div>

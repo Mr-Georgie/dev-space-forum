@@ -1,5 +1,5 @@
 import React, {useContext } from 'react'
-// import img1 from '../../images/card-img1.png'
+import noImg from '../../images/no-image.png'
 
 import { UserContext } from '../UtilityComponents/UserContext'
 import { SpaceContext } from '../UtilityComponents/SpaceContext'
@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 export default function Card(props) {
 
   const { user, toast } = useContext(UserContext)
-  const { updateSpace, createNewSpace } = useContext(SpaceContext)
+  const { updateSpace, createNewSpace, getSpaceImagePreview } = useContext(SpaceContext)
   const { updateQuestion } = useContext(QuestionContext)
   
   // convert a space tag to an array of tag
@@ -87,6 +87,8 @@ export default function Card(props) {
     }
   }
 
+  // console.log(props.image_id)
+
   return (
     <>
       {/* ---------------------------------- UI for spaces in card -------------------------------------- */}
@@ -111,7 +113,7 @@ export default function Card(props) {
                           text-sm font-medium text-slate-500 group-hover:text-blue-500 cursor-pointer"
               >
                 <p className="">{props.host === null ? "No host yet" : `${props.host} is Hosting this space`}</p>
-                <p className="text-slate-300">Director of Operations</p>
+                <p className="text-slate-300">Web Developer @Appwrite</p>
               </div>
 
 
@@ -125,12 +127,23 @@ export default function Card(props) {
           {/* ---------- close ----------- */}
 
           {/* ---------- open ----------- */}
-          <Link to={`/home/view-space/${props.id}`}  className="flex justify-center items-center col-span-5">
-            <img 
-              src="https://cdn.pixabay.com/photo/2020/04/04/03/42/chat-5000695_960_720.png" 
-              alt="space screenshot" 
-              className="w-full object-cover rounded-md h-32"/>
-          </Link>
+          {
+            props.image_id === null ?
+            <Link to={`/home/view-space/${props.id}`}  className="flex justify-center items-center col-span-5">
+              <img 
+                src={noImg}
+                alt="space screenshot" 
+                className="w-full object-cover rounded-md h-32"/>
+            </Link>
+            :
+            <Link to={`/home/view-space/${props.id}`}  className="flex justify-center items-center col-span-5">
+              <img 
+                src={getSpaceImagePreview(props.image_id)}
+                alt="space screenshot" 
+                className="w-full object-cover rounded-md h-32"/>
+            </Link>
+
+          }
           {/* ---------- close ----------- */}
 
           {/* ---------- open ----------- */}
@@ -205,7 +218,7 @@ export default function Card(props) {
                                 text-sm font-medium text-slate-500 group-hover:text-blue-500 cursor-pointer"
                     >
                     <p className="">{props.host === null ? "No host yet for this question" : `${props.host} is Hosting this space`}</p>
-                    <p className="text-slate-300 group-hover:text-slate-300">Director of Operations</p>
+                    <p className="text-slate-300 group-hover:text-slate-300">Web Developer @Appwrite</p>
                     </div>
                 </div>
 

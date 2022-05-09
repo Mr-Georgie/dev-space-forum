@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-import { sdk, collectionId } from "../../config"
+import { sdk, collectionId, bucketId } from "../../config"
 // eslint-disable-next-line
 import { useNavigate } from 'react-router-dom'
 
@@ -28,7 +28,7 @@ function SpaceContextProvider(props) {
         // console.log("spaces: ", data.documents)
       }
       catch (error) {
-        toast.error("Oops! An error occured while fetching spaces")
+        console.log("Oops! An error occured while fetching spaces")
         console.log(error)
       }
     }
@@ -40,7 +40,7 @@ function SpaceContextProvider(props) {
             //   console.log("space: ", data)
         }
         catch (error) {
-            toast.error("Oops! An error occured while fetching spaces")
+            console.log("Oops! An error occured while fetching spaces")
             console.log(error)
         }
       }
@@ -104,12 +104,12 @@ function SpaceContextProvider(props) {
             navigate(`/home/view-space/${documentId}`)
         }
         catch (error) {
-          toast.error("Oops! An error updating new space")
+          toast.error("Oops! An error updating this space")
           console.log(error)
         }
     }
 
-    const deleteSpace = async (documentId) => {
+    const deleteSpace = async (documentId, imageId) => {
     
         console.log("about to delete space")
 
@@ -119,6 +119,8 @@ function SpaceContextProvider(props) {
                 collectionId, // collectionID 
                 documentId, // auto generate ID for each space
             )
+
+            await sdk.storage.deleteFile(bucketId, imageId)
                 
             toast.success("Space deleted successfully")
 
@@ -127,15 +129,26 @@ function SpaceContextProvider(props) {
             navigate('/home')
         }
         catch (error) {
-          toast.error("Oops! An error deleting new space")
+          toast.error("Oops! An error deleting this space")
           console.log(error)
         }
+    }
+
+    // handles image preview on the interface
+    const getSpaceImagePreview = (id) => {
+
+      if( id !== undefined ) {
+          return sdk.storage.getFilePreview(bucketId, id)
+      } else {
+          return ""
+      }
+        
     }
 
     // pass user and fetchuser method to any child component of UserContext
       return (
         <>
-          <SpaceContext.Provider value={{space, spaces, createNewSpace, fetchSpaces, fetchSpaceById, updateSpace, deleteSpace, toast}}>
+          <SpaceContext.Provider value={{space, spaces, createNewSpace, fetchSpaces, fetchSpaceById, updateSpace, deleteSpace, getSpaceImagePreview, toast}}>
             {props.children}
           </SpaceContext.Provider>
 
