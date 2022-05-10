@@ -6,6 +6,8 @@ import Toggler from '../UtilityComponents/Toggler'
 
 import { useNavigate } from 'react-router-dom'
 
+import DevSpaceLightLogo from '../../images/devspace-logo-light-sm.png'
+
 
 export default function Header() {
 
@@ -69,7 +71,9 @@ export default function Header() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           }
-          <Link to="/home" className="nav-link p-2"> DevSpace</Link>{/* Put Logo here */}
+          <Link to="/home" className="nav-link p-2"> 
+            <img src={DevSpaceLightLogo} alt="devspace icon" className="h-7"/>
+          </Link>{/* Put Logo here */}
         </div>
 
         <div className={`${navContent ? "flex flex-col" : "hidden"} gap-3 md:flex md:flex-row md:gap-3 md:items-center md:w-auto`} id="menu">
@@ -93,14 +97,14 @@ export default function Header() {
             />
           </label>
 
-          <div className="flex flex-col items-end gap-3 md:flex-row md:items-center md:gap-5 md:static">
+          <div className="flex flex-col items-start gap-3 md:flex-row md:items-center md:gap-5 md:static">
             <Link to="ask-a-question" className="btn-indigo text-sm inline-block">Ask a question</Link>
             <Link to="/home/add-space" className="btn-pink text-sm inline-block">Create Space</Link>
             <div className="relative inline-block text-left">
             <Toggler>
               {({on, toggle}) => (
                 <>
-                  <div className="flex items-center gap-1 cursor-pointer" onClick={() => toggle()}>
+                  <div className="flex items-center gap-1 cursor-pointer focus:px-2 hover:bg-slate-50 focus:bg-slate-50" onClick={() => toggle()}>
                     <img className="shrink-0 h-10 w-10 rounded-full"
                       src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png"  
                       alt="" 
@@ -113,8 +117,7 @@ export default function Header() {
                     // show dropdown if toggle on is true
                     on && 
                     <div 
-                      className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white 
-                      ring-1 ring-black ring-opacity-5 focus:outline-none" 
+                      className="absolute rounded-md shadow-lg bg-white mt-2 w-36 md:right-0 md:w-56" 
                       role="menu" aria-orientation="vertical" 
                       aria-labelledby="menu-button" tabIndex="-1"
                     >

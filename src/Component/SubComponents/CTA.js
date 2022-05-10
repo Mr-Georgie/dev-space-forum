@@ -8,6 +8,8 @@ import React from 'react'
  * This is an extra component.
  * May be used in future versions to improve UX
  */
+
+
 export default function CTA() {
   return (
     <div className="px-4"> 

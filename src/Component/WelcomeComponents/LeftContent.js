@@ -1,5 +1,6 @@
 import React from 'react'
 
+import DevSpaceDarkLogo from '../../images/devspace-logo-dark.png'
 import TwoPeopleLearning from '../../images/carton.png'
 
 export default function LeftContent(props) {
@@ -8,7 +9,8 @@ export default function LeftContent(props) {
         <main className={`w-full bg-indigo-900 p-7 space-y-5 md:block md:w-96 ${props.close ? "hidden" : " "}`}>
             <header>
                     <nav className="p-3">
-                            <h4 className="text-xl text-white font-normal uppercase">DevSpace Forum</h4> {/** style="font-family: 'montserrat regular';" */}
+                        {/* <h4 className="text-xl text-white font-normal uppercase">DevSpace Forum</h4> */}
+                        <img src={DevSpaceDarkLogo} alt="devspace forum icon" className="h-16" />
                     </nav>
             </header>
             <div className="p-3 my7 space-y-6">
