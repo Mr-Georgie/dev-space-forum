@@ -9,7 +9,7 @@ Questions on DevSpace can be in the form of "how to's", "getting started", "intr
 
 
 ## Description
-The DevSpace Forum will be made with the following technologies:
+The DevSpace Forum was made with the following technologies:
 
 - React & React-Router (FrontEnd)
 - TailWind CSS
